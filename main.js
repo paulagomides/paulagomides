@@ -92,8 +92,9 @@
     $("#hamburguer").setAttribute("aria-label", ui($("#gaveta").hidden ? "abrirMenu" : "fecharMenu"));
 
     // fita
-    const palavras = [esc(t(C.textos.fitaInicio)), ...C.categorias.map((c) => `<b>${esc(t(c.nome))}</b>`), esc(t(C.textos.fitaFim))];
-    $("#fita").innerHTML = `<span>${palavras.map((p) => `${p} ${flor}`).join(" ")}</span>`.repeat(4);
+    const palavras = (C.textos.letreiro || []).map((p) => esc(t(p))).filter(Boolean);
+    $("#fita").innerHTML = palavras.length ? `<span>${palavras.map((p) => `${p} ${flor}`).join(" ")}</span>`.repeat(palavras.length < 5 ? 6 : 4) : "";
+    $(".fita").hidden = !palavras.length;
 
     // sobre
     $("#foto-sobre").src = src(C.perfil.fotoSobre);
@@ -265,6 +266,18 @@
   }
   ham.addEventListener("click", () => alternarMenu(gaveta.hidden));
   gaveta.addEventListener("click", (e) => { if (e.target.closest("a")) alternarMenu(false); });
+
+  // links do menu rolam até a seção sem colocar #inicio, #videos etc. no endereço
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const id = a.getAttribute("href").slice(1);
+    const alvo = id && document.getElementById(id);
+    if (!alvo) return;
+    e.preventDefault();
+    alvo.scrollIntoView({ behavior: reduzMovimento ? "auto" : "smooth" });
+    if (location.hash && location.hash !== "#editar") history.replaceState(null, "", location.pathname + location.search);
+  });
 
   /* ---------- visualizador (vídeo com som / foto ampliada) ---------- */
   const modal = $("#modal"), palco = $("#modal-midia"), legenda = $("#modal-legenda");

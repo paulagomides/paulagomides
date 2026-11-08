@@ -8,18 +8,32 @@
    ===================================================================== */
 window.CONTEUDO = {
   "textos": {
-    "fitaInicio": {
-      "pt": "conteúdos que conectam",
-      "en": "content that connects"
-    },
-    "fitaFim": {
-      "pt": "e convertem",
-      "en": "and converts"
-    },
-    "balaoCapa": {
-      "pt": "conteúdos que conectam *e convertem!*",
-      "en": "content that connects *and converts!*"
-    },
+    "letreiro": [
+      {
+        "pt": "Vídeos UGC",
+        "en": "UGC videos"
+      },
+      {
+        "pt": "Reviews",
+        "en": "Reviews"
+      },
+      {
+        "pt": "Unboxing",
+        "en": "Unboxing"
+      },
+      {
+        "pt": "Storytelling",
+        "en": "Storytelling"
+      },
+      {
+        "pt": "Vídeos para anúncios",
+        "en": "Ad creatives"
+      },
+      {
+        "pt": "Fotos de produto",
+        "en": "Product photos"
+      }
+    ],
     "sobreRotulo": {
       "pt": "Quem sou eu?",
       "en": "About me"
@@ -141,7 +155,7 @@ window.CONTEUDO = {
     "fotoCapa": "paula-capa.webp",
     "fotoSobre": "paula-sobre.webp",
     "apresentacao": {
-      "pt": "Meu objetivo é criar vídeos leves e autênticos que mostram o produto dentro de momentos reais da rotina, com roteiro e narração próprios.",
+      "pt": "Sou a Paula, UGC Creator. Crio vídeos leves e autênticos que mostram o produto dentro de momentos reais da rotina, com roteiro e narração próprios.",
       "en": "I’m Paula, a UGC Creator. I make light, authentic videos that show products inside real moments of everyday life, with my own scripts and voiceover."
     },
     "fatos": [
@@ -156,10 +170,6 @@ window.CONTEUDO = {
       {
         "pt": "Português • Inglês",
         "en": "Portuguese • English"
-      },
-      {
-        "pt": "Marketing de Performance",
-        "en": "Portuguese • English"
       }
     ],
     "interesses": [
@@ -172,12 +182,12 @@ window.CONTEUDO = {
         "en": "Skincare"
       },
       {
-        "pt": "Vegetariana",
-        "en": "Vegetarian"
+        "pt": "Estagiária em marketing",
+        "en": "Marketing intern"
       },
       {
-        "pt": "hobbies",
-        "en": "Marketing intern"
+        "pt": "Vegetariana",
+        "en": "Vegetarian"
       }
     ],
     "diferenciais": [
@@ -560,22 +570,22 @@ window.CONTEUDO = {
     },
     {
       "nome": {
-        "pt": "Reviews",
-        "en": "Reviews"
-      },
-      "texto": {
-        "pt": "Opinião sincera com demonstração de uso e benefícios.",
-        "en": "Honest opinion with a demo of use and benefits."
-      }
-    },
-    {
-      "nome": {
         "pt": "Vídeos para anúncios",
         "en": "Ad videos"
       },
       "texto": {
         "pt": "15 a 30 segundos, com gancho, demonstração e chamada para ação.",
         "en": "15 to 30 seconds, with a hook, demo and call to action."
+      }
+    },
+    {
+      "nome": {
+        "pt": "Reviews",
+        "en": "Reviews"
+      },
+      "texto": {
+        "pt": "Opinião sincera com demonstração de uso e benefícios.",
+        "en": "Honest opinion with a demo of use and benefits."
       }
     },
     {
@@ -678,7 +688,7 @@ window.CONTEUDO = {
           "en": "1 UGC video"
         },
         {
-          "pt": "Roteiro e edição",
+          "pt": "Roteiro simples",
           "en": "Simple script"
         },
         {
@@ -703,7 +713,7 @@ window.CONTEUDO = {
           "en": "3 UGC videos"
         },
         {
-          "pt": "Roteiro e edição",
+          "pt": "2 variações de gancho",
           "en": "2 hook variations"
         },
         {
@@ -724,11 +734,11 @@ window.CONTEUDO = {
       },
       "itens": [
         {
-          "pt": "5 vídeos UGC",
+          "pt": "5 vídeos em formatos diferentes",
           "en": "5 videos in different formats"
         },
         {
-          "pt": "Roteiro e edição",
+          "pt": "Versões para anúncios",
           "en": "Ad versions"
         },
         {

@@ -622,6 +622,10 @@
       <div class="ed-duplo"><label>Cloud name<input id="ed-n-cloud" value="${esc(C.nuvem?.cloudName || "")}"></label>
         <label>Upload preset<input id="ed-n-preset" value="${esc(C.nuvem?.preset || "")}"></label>
         <p class="ed-nota">Vídeos novos vão para o Cloudinary. Deixe em branco para guardar os vídeos no GitHub.</p></div>
+      <h3>Letreiro (faixa que corre embaixo da capa)</h3>
+      <div class="ed-duplo"><label>Palavras <small>português</small><textarea id="ed-l-pt" rows="6">${esc((C.textos.letreiro || []).map((x) => bil(x, "pt")).join("\n"))}</textarea></label>
+        <label>Palavras <small>inglês</small><textarea id="ed-l-en" rows="6">${esc((C.textos.letreiro || []).map((x) => bil(x, "en")).join("\n"))}</textarea></label>
+        <p class="ed-nota">Uma palavra ou expressão por linha, na mesma ordem nos dois idiomas. Deixe vazio para esconder o letreiro.</p></div>
       <h3>Categorias dos vídeos</h3>
       <p class="ed-nota">Cada categoria vira um botão de filtro. Para apagar uma categoria, mova antes os vídeos dela para outra.</p>
       <div id="ed-cats">${C.categorias.map((c) => linhaCat(c)).join("")}</div>
@@ -645,6 +649,8 @@
         ct.email = $("#ed-c-email", corpo).value.trim();
         ct.redes = $$(".ed-rede", corpo).map((l) => ({ rede: $("select", l).value, usuario: $(".r-u", l).value.trim(), link: $(".r-l", l).value.trim() })).filter((r) => r.link.length > 8);
         C.categorias = cats;
+        const lpt = $("#ed-l-pt", corpo).value.split("\n").map((x) => x.trim()), len = $("#ed-l-en", corpo).value.split("\n").map((x) => x.trim());
+        C.textos.letreiro = lpt.map((x, i) => (x ? fazBil(x, len[i] || "") : null)).filter(Boolean);
         const cloud = $("#ed-n-cloud", corpo).value.trim(), preset = $("#ed-n-preset", corpo).value.trim();
         C.nuvem = cloud && preset ? { ...(C.nuvem || {}), cloudName: cloud, preset } : null;
         fecharPainel(); atualizar(); aviso("Informações salvas.");
