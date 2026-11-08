@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Paula Gomides | UGC Creator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <meta name="description" content="Portfólio UGC de Paula Gomides: vídeos de Tech, Daily, Beauty e Fitness que conectam e convertem.">
+  <meta property="og:title" content="Paula Gomides | UGC Creator">
+  <meta property="og:description" content="Vídeos UGC de Tech, Daily, Beauty e Fitness que conectam e convertem.">
+  <meta property="og:image" content="midia/site/paula-capa.webp">
+  <meta name="theme-color" content="#870053">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%23d70084'%3E%3Cellipse cx='50' cy='26' rx='13' ry='24'/%3E%3Cellipse cx='50' cy='26' rx='13' ry='24' transform='rotate(60 50 50)'/%3E%3Cellipse cx='50' cy='26' rx='13' ry='24' transform='rotate(120 50 50)'/%3E%3Cellipse cx='50' cy='26' rx='13' ry='24' transform='rotate(180 50 50)'/%3E%3Cellipse cx='50' cy='26' rx='13' ry='24' transform='rotate(240 50 50)'/%3E%3Cellipse cx='50' cy='26' rx='13' ry='24' transform='rotate(300 50 50)'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700;900&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="pular" href="#videos" data-ui="pular">Pular para os vídeos</a>
+
+  <!-- ===== MENU ===== -->
+  <header class="topo" id="topo">
+    <div class="topo__in">
+      <a href="#inicio" class="marca" aria-label="Início">
+        <svg class="flor" viewBox="0 0 100 100" aria-hidden="true"><use href="#flor"/></svg>
+        <span class="marca__nome">Paula Gomides</span>
+      </a>
+      <nav class="menu" id="menu" aria-label="Seções"></nav>
+      <div class="idioma" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="botao botao--pequeno topo__cta" href="#contato" data-ui="vamosConversar">Vamos conversar</a>
+      <button class="hamburguer" id="hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="gaveta">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- menu do celular -->
+  <div class="gaveta" id="gaveta" hidden>
+    <nav aria-label="Seções" id="gaveta-menu"></nav>
+    <div class="gaveta__rodape" id="gaveta-redes"></div>
+  </div>
+
+  <main id="principal">
+    <!-- ===== CAPA ===== -->
+    <section class="capa" id="inicio">
+      <div class="capa__in">
+        <div class="capa__texto">
+          <p class="selo" data-e="perfil.anoPortfolio"></p>
+          <h1 class="capa__nome" data-e="perfil.nome" data-tipo="nome"></h1>
+          <p class="capa__titulo"><strong data-e="perfil.titulo"></strong> <span class="barra">|</span> <span data-e="perfil.nichos"></span></p>
+          <p class="capa__frase" data-e="perfil.frase"></p>
+          <div class="capa__botoes">
+            <a class="botao" href="#videos"><span data-ui="verVideos">Ver vídeos</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+            <a class="botao botao--contorno" data-whats target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg> WhatsApp</a>
+          </div>
+          <ul class="capa__redes" id="capa-redes"></ul>
+        </div>
+        <div class="capa__foto">
+          <div class="capa__circulo"></div>
+          <img id="foto-capa" data-img="perfil.fotoCapa" alt="Paula Gomides" width="968" height="743" fetchpriority="high">
+          <svg class="flor flor--grande" viewBox="0 0 100 100" aria-hidden="true"><use href="#flor"/></svg>
+          <p class="capa__balao" data-e="textos.balaoCapa" data-rico></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="fita" aria-hidden="true"><div class="fita__trilho" id="fita"></div></div>
+
+    <!-- ===== SOBRE ===== -->
+    <section class="sobre secao" id="sobre">
+      <div class="sobre__in">
+        <div class="sobre__midia">
+          <div class="sobre__video" data-img="perfil.videoSobre" data-tipo-midia="video">
+            <video id="video-sobre" muted loop playsinline autoplay preload="metadata"></video>
+          </div>
+          <img class="sobre__enfeite" src="midia/site/enfeite-produtos.webp" alt="" width="496" height="573" loading="lazy">
+        </div>
+        <div class="sobre__texto">
+          <p class="rotulo" data-e="textos.sobreRotulo"></p>
+          <h2 class="titulo" data-e="textos.sobreTitulo" data-rico></h2>
+          <p class="sobre__apresentacao" data-e="perfil.apresentacao"></p>
+          <ul class="fatos" id="fatos" data-lista="perfil.fatos"></ul>
+          <ul class="interesses" id="interesses" data-lista="perfil.interesses"></ul>
+          <div class="diferenciais" id="diferenciais" data-lista="perfil.diferenciais"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VÍDEOS ===== -->
+    <section class="videos secao" id="videos">
+      <div class="secao__in">
+        <div class="secao__cabeca">
+          <div>
+            <p class="rotulo" data-e="textos.videosRotulo"></p>
+            <h2 class="titulo" data-e="textos.videosTitulo" data-rico></h2>
+          </div>
+          <p class="secao__dica" data-e="textos.videosDica"></p>
+        </div>
+        <div class="filtros" role="tablist" id="filtros"></div>
+        <ul class="grade-videos" id="grade-videos"></ul>
+      </div>
+    </section>
+
+    <!-- ===== FOTOS ===== -->
+    <section class="fotos secao" id="fotos">
+      <div class="secao__in">
+        <div class="secao__cabeca">
+          <div>
+            <p class="rotulo" data-e="textos.fotosRotulo"></p>
+            <h2 class="titulo" data-e="textos.fotosTitulo" data-rico></h2>
+          </div>
+          <img class="fotos__camera" src="midia/site/enfeite-camera.webp" alt="" width="666" height="520" loading="lazy">
+        </div>
+        <ul class="grade-fotos" id="grade-fotos"></ul>
+      </div>
+    </section>
+
+    <!-- ===== SERVIÇOS + PROCESSO ===== -->
+    <section class="servicos secao" id="servicos">
+      <div class="secao__in">
+        <p class="rotulo" data-e="textos.servicosRotulo"></p>
+        <h2 class="titulo" data-e="textos.servicosTitulo" data-rico></h2>
+        <ul class="lista-servicos" id="lista-servicos" data-lista="servicos"></ul>
+        <h3 class="subtitulo" data-e="textos.processoTitulo"></h3>
+        <ol class="processo" id="processo" data-lista="processo"></ol>
+      </div>
+    </section>
+
+    <!-- ===== PACOTES ===== -->
+    <section class="pacotes secao" id="pacotes">
+      <div class="secao__in">
+        <p class="rotulo" data-e="textos.pacotesRotulo"></p>
+        <h2 class="titulo" data-e="textos.pacotesTitulo" data-rico></h2>
+        <div class="grade-pacotes" id="grade-pacotes" data-lista="pacotes"></div>
+      </div>
+    </section>
+
+    <!-- ===== CONTATO ===== -->
+    <section class="contato" id="contato">
+      <div class="contato__in">
+        <svg class="flor flor--contato" viewBox="0 0 100 100" aria-hidden="true"><use href="#flor"/></svg>
+        <h2 class="contato__titulo" data-e="contato.chamada"></h2>
+        <div class="contato__botoes">
+          <a class="botao botao--claro" data-whats target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>
+            <span data-ui="chamarWhats">Chamar no WhatsApp</span></a>
+          <a class="botao botao--contorno-claro" id="link-email">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-email"/></svg>
+            <span data-ui="enviarEmail">Enviar e-mail</span></a>
+        </div>
+        <dl class="contato__dados">
+          <div><dt>WhatsApp</dt><dd data-e="contato.whatsappTexto"></dd></div>
+          <div><dt data-ui="email">E-mail</dt><dd><span id="email-texto"></span> <button class="copiar" id="copiar-email" type="button" data-ui="copiar">Copiar</button></dd></div>
+          <div><dt data-ui="cidade">Cidade</dt><dd data-e="contato.cidade"></dd></div>
+        </dl>
+        <ul class="contato__redes" id="contato-redes"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>© <span id="ano"></span> <span class="marca__nome"></span> · UGC Creator</p>
+    <a href="#inicio" data-ui="voltarTopo">Voltar ao topo ↑</a>
+  </footer>
+
+  <a class="whats-flutuante" data-whats target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-whats"/></svg>
+  </a>
+
+  <!-- ===== PLAYER (abre ao clicar num vídeo/foto) ===== -->
+  <div class="modal" id="modal" hidden role="dialog" aria-modal="true">
+    <button class="modal__fechar" id="modal-fechar" aria-label="Fechar">×</button>
+    <button class="modal__seta modal__seta--ant" id="modal-ant" aria-label="Anterior">‹</button>
+    <figure class="modal__palco">
+      <div class="modal__midia" id="modal-midia"></div>
+      <figcaption class="modal__legenda" id="modal-legenda"></figcaption>
+    </figure>
+    <button class="modal__seta modal__seta--prox" id="modal-prox" aria-label="Próximo">›</button>
+  </div>
+
+  <!-- ícones -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="flor" viewBox="0 0 100 100"><g fill="currentColor"><ellipse cx="50" cy="26" rx="12" ry="24"/><ellipse cx="50" cy="26" rx="12" ry="24" transform="rotate(60 50 50)"/><ellipse cx="50" cy="26" rx="12" ry="24" transform="rotate(120 50 50)"/><ellipse cx="50" cy="26" rx="12" ry="24" transform="rotate(180 50 50)"/><ellipse cx="50" cy="26" rx="12" ry="24" transform="rotate(240 50 50)"/><ellipse cx="50" cy="26" rx="12" ry="24" transform="rotate(300 50 50)"/></g></symbol>
+    <symbol id="i-whats" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.5-.3z"/></symbol>
+    <symbol id="i-email" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 6h18v12H3zM3 7l9 6 9-6"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></g></symbol>
+    <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 2h-3.3v13.2a2.9 2.9 0 1 1-2-2.8V9a6.3 6.3 0 1 0 5.3 6.2V8.6a7.6 7.6 0 0 0 4.4 1.4V6.7a4.4 4.4 0 0 1-4.4-4.7z"/></symbol>
+  </svg>
+
+  <script src="conteudo.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    /* Carrega o editor só quando o endereço termina com #editar */
+    (function () {
+      function carregar() {
+        if (location.hash !== "#editar" || window.EDITOR_CARREGADO) return;
+        window.EDITOR_CARREGADO = true;
+        var s = document.createElement("script"); s.src = "js/editor.js"; document.body.appendChild(s);
+      }
+      carregar(); addEventListener("hashchange", carregar);
+    })();
+  </script>
+</body>
+</html>
