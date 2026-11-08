@@ -155,7 +155,7 @@ window.CONTEUDO = {
     "fotoCapa": "paula-capa.webp",
     "fotoSobre": "paula-sobre.webp",
     "apresentacao": {
-      "pt": "Sou a Paula, UGC Creator. Crio vídeos leves e autênticos que mostram o produto dentro de momentos reais da rotina, com roteiro e narração próprios.",
+      "pt": "Minha intenção é criar vídeos leves e autênticos que mostram o produto dentro de momentos reais da rotina, com roteiro e narração próprios.",
       "en": "I’m Paula, a UGC Creator. I make light, authentic videos that show products inside real moments of everyday life, with my own scripts and voiceover."
     },
     "fatos": [
@@ -170,6 +170,10 @@ window.CONTEUDO = {
       {
         "pt": "Português • Inglês",
         "en": "Portuguese • English"
+      },
+      {
+        "pt": "Marketing de Performance",
+        "en": "Portuguese • English"
       }
     ],
     "interesses": [
@@ -182,7 +186,7 @@ window.CONTEUDO = {
         "en": "Skincare"
       },
       {
-        "pt": "Estagiária em marketing",
+        "pt": "HOBBIES",
         "en": "Marketing intern"
       },
       {
@@ -265,13 +269,13 @@ window.CONTEUDO = {
   "videos": [
     {
       "titulo": {
-        "pt": "Fone de Ouvido",
-        "en": "Headphones"
+        "pt": "Haircare",
+        "en": "Haircare"
       },
-      "categoria": "tech",
+      "categoria": "beauty",
       "formato": {
-        "pt": "Review",
-        "en": "Review"
+        "pt": "Rotina",
+        "en": "Routine"
       },
       "etiquetas": [
         {
@@ -279,8 +283,8 @@ window.CONTEUDO = {
           "en": "Voiceover"
         }
       ],
-      "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152609/portfolio/fone-de-ouvido.mp4",
-      "capa": "fone-de-ouvido.jpg"
+      "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152612/portfolio/haircare.mp4",
+      "capa": "haircare.jpg"
     },
     {
       "titulo": {
@@ -323,6 +327,25 @@ window.CONTEUDO = {
       ],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152600/portfolio/app-de-treino.mp4",
       "capa": "app-de-treino.jpg"
+    },
+    {
+      "titulo": {
+        "pt": "Fone de Ouvido",
+        "en": "Headphones"
+      },
+      "categoria": "tech",
+      "formato": {
+        "pt": "Review",
+        "en": "Review"
+      },
+      "etiquetas": [
+        {
+          "pt": "Narração",
+          "en": "Voiceover"
+        }
+      ],
+      "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152609/portfolio/fone-de-ouvido.mp4",
+      "capa": "fone-de-ouvido.jpg"
     },
     {
       "titulo": {
@@ -375,25 +398,6 @@ window.CONTEUDO = {
       "etiquetas": [],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152617/portfolio/lego-montagem.mp4",
       "capa": "lego-montagem.jpg"
-    },
-    {
-      "titulo": {
-        "pt": "Haircare",
-        "en": "Haircare"
-      },
-      "categoria": "beauty",
-      "formato": {
-        "pt": "Rotina",
-        "en": "Routine"
-      },
-      "etiquetas": [
-        {
-          "pt": "Narração",
-          "en": "Voiceover"
-        }
-      ],
-      "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152612/portfolio/haircare.mp4",
-      "capa": "haircare.jpg"
     },
     {
       "titulo": {
