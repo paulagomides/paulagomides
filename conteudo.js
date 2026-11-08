@@ -134,10 +134,10 @@ window.CONTEUDO = {
       "pt": "Portfólio 2026",
       "en": "Portfolio 2026"
     },
-    "fotoCapa": "midia/site/paula-capa.webp",
-    "fotoSobre": "midia/site/paula-sobre.webp",
+    "fotoCapa": "paula-capa.webp",
+    "fotoSobre": "paula-sobre.webp",
     "videoSobre": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152626/portfolio/sobre-mim.mp4",
-    "capaVideoSobre": "midia/capas/sobre-mim.jpg",
+    "capaVideoSobre": "sobre-mim.jpg",
     "apresentacao": {
       "pt": "Sou a Paula, UGC Creator. Crio vídeos leves e autênticos que mostram o produto dentro de momentos reais da rotina, com roteiro e narração próprios.",
       "en": "I’m Paula, a UGC Creator. I make light, authentic videos that show products inside real moments of everyday life, with my own scripts and voiceover."
@@ -268,7 +268,7 @@ window.CONTEUDO = {
         }
       ],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152609/portfolio/fone-de-ouvido.mp4",
-      "capa": "midia/capas/fone-de-ouvido.jpg"
+      "capa": "fone-de-ouvido.jpg"
     },
     {
       "titulo": {
@@ -291,7 +291,7 @@ window.CONTEUDO = {
         }
       ],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152614/portfolio/jogo-mobile.mp4",
-      "capa": "midia/capas/jogo-mobile.jpg"
+      "capa": "jogo-mobile.jpg"
     },
     {
       "titulo": {
@@ -310,7 +310,7 @@ window.CONTEUDO = {
         }
       ],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152600/portfolio/app-de-treino.mp4",
-      "capa": "midia/capas/app-de-treino.jpg"
+      "capa": "app-de-treino.jpg"
     },
     {
       "titulo": {
@@ -329,7 +329,7 @@ window.CONTEUDO = {
         }
       ],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152619/portfolio/limpa-oculos.mp4",
-      "capa": "midia/capas/limpa-oculos.jpg"
+      "capa": "limpa-oculos.jpg"
     },
     {
       "titulo": {
@@ -348,7 +348,7 @@ window.CONTEUDO = {
         }
       ],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152607/portfolio/cadeira-escritorio.mp4",
-      "capa": "midia/capas/cadeira-escritorio.jpg"
+      "capa": "cadeira-escritorio.jpg"
     },
     {
       "titulo": {
@@ -362,7 +362,7 @@ window.CONTEUDO = {
       },
       "etiquetas": [],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152617/portfolio/lego-montagem.mp4",
-      "capa": "midia/capas/lego-montagem.jpg"
+      "capa": "lego-montagem.jpg"
     },
     {
       "titulo": {
@@ -381,7 +381,7 @@ window.CONTEUDO = {
         }
       ],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152612/portfolio/haircare.mp4",
-      "capa": "midia/capas/haircare.jpg"
+      "capa": "haircare.jpg"
     },
     {
       "titulo": {
@@ -395,7 +395,7 @@ window.CONTEUDO = {
       },
       "etiquetas": [],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152621/portfolio/lip-oil.mp4",
-      "capa": "midia/capas/lip-oil.jpg"
+      "capa": "lip-oil.jpg"
     },
     {
       "titulo": {
@@ -409,7 +409,7 @@ window.CONTEUDO = {
       },
       "etiquetas": [],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152604/portfolio/bodycare.mp4",
-      "capa": "midia/capas/bodycare.jpg"
+      "capa": "bodycare.jpg"
     },
     {
       "titulo": {
@@ -428,7 +428,7 @@ window.CONTEUDO = {
         }
       ],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152602/portfolio/bike-em-casa.mp4",
-      "capa": "midia/capas/bike-em-casa.jpg"
+      "capa": "bike-em-casa.jpg"
     },
     {
       "titulo": {
@@ -442,7 +442,7 @@ window.CONTEUDO = {
       },
       "etiquetas": [],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152628/portfolio/suplemento.mp4",
-      "capa": "midia/capas/suplemento.jpg"
+      "capa": "suplemento.jpg"
     },
     {
       "titulo": {
@@ -456,89 +456,89 @@ window.CONTEUDO = {
       },
       "etiquetas": [],
       "video": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152624/portfolio/recovery-esportivo.mp4",
-      "capa": "midia/capas/recovery-esportivo.jpg"
+      "capa": "recovery-esportivo.jpg"
     }
   ],
   "fotos": [
     {
-      "arquivo": "midia/fotos/foto-01.jpg",
+      "arquivo": "foto-01.jpg",
       "descricao": {
         "pt": "Paula segurando um protetor solar azul",
         "en": "Paula holding a blue sunscreen"
       }
     },
     {
-      "arquivo": "midia/fotos/foto-02.jpg",
+      "arquivo": "foto-02.jpg",
       "descricao": {
         "pt": "Garrafa de bebida esportiva na academia",
         "en": "Sports drink bottle at the gym"
       }
     },
     {
-      "arquivo": "midia/fotos/foto-03.jpg",
+      "arquivo": "foto-03.jpg",
       "descricao": {
         "pt": "Paula tomando um milkshake na rua",
         "en": "Paula drinking a milkshake on the street"
       }
     },
     {
-      "arquivo": "midia/fotos/foto-04.jpg",
+      "arquivo": "foto-04.jpg",
       "descricao": {
         "pt": "Potes de creme corporal",
         "en": "Body cream jars"
       }
     },
     {
-      "arquivo": "midia/fotos/foto-05.jpg",
+      "arquivo": "foto-05.jpg",
       "descricao": {
         "pt": "Sérum de vitamina E com conta-gotas",
         "en": "Vitamin E serum with dropper"
       }
     },
     {
-      "arquivo": "midia/fotos/foto-06.jpg",
+      "arquivo": "foto-06.jpg",
       "descricao": {
         "pt": "Paula usando um tablet no sofá",
         "en": "Paula using a tablet on the couch"
       }
     },
     {
-      "arquivo": "midia/fotos/foto-07.jpg",
+      "arquivo": "foto-07.jpg",
       "descricao": {
         "pt": "Espuma de limpeza facial",
         "en": "Facial cleansing foam"
       }
     },
     {
-      "arquivo": "midia/fotos/foto-08.jpg",
+      "arquivo": "foto-08.jpg",
       "descricao": {
         "pt": "Paula com produto de skincare no banheiro",
         "en": "Paula with a skincare product in the bathroom"
       }
     },
     {
-      "arquivo": "midia/fotos/foto-09.jpg",
+      "arquivo": "foto-09.jpg",
       "descricao": {
         "pt": "Paula segurando um gloss rosa",
         "en": "Paula holding a pink lip gloss"
       }
     },
     {
-      "arquivo": "midia/fotos/foto-10.jpg",
+      "arquivo": "foto-10.jpg",
       "descricao": {
         "pt": "Roupa de treino dobrada no chão",
         "en": "Workout clothes folded on the floor"
       }
     },
     {
-      "arquivo": "midia/fotos/foto-11.jpg",
+      "arquivo": "foto-11.jpg",
       "descricao": {
         "pt": "Paula na academia com bike de spinning",
         "en": "Paula at the gym with a spinning bike"
       }
     },
     {
-      "arquivo": "midia/fotos/foto-12.jpg",
+      "arquivo": "foto-12.jpg",
       "descricao": {
         "pt": "Paula com frascos de óleos essenciais",
         "en": "Paula with essential oil bottles"

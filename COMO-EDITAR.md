@@ -14,14 +14,13 @@ Faça essa parte **no computador**, uma vez só.
 
 ### 2. Envie os arquivos do site
 1. No seu computador, **descompacte** o arquivo `portfolio-paula-gomides.zip`.
-2. Abra a pasta `portfolio-paula-gomides`. Dentro dela você vê `index.html`, `conteudo.js`, as pastas `css`, `js`, `midia` e este guia.
+2. Abra a pasta `portfolio-paula-gomides`. Dentro dela há 38 arquivos soltos (sem subpastas): `index.html`, `conteudo.js`, `style.css`, `main.js`, as fotos etc.
    O pacote tem só uns 2 MB: os vídeos ficam no Cloudinary, não no GitHub.
 3. No GitHub, na página do repositório, clique em **Add file → Upload files**.
-4. Selecione **tudo o que está dentro da pasta** (Ctrl+A no Windows, Cmd+A no Mac) e **arraste** para a página do GitHub.
-   Use Chrome ou Edge: eles mantêm as pastas.
-   ⚠️ Arraste o *conteúdo* da pasta, não a pasta inteira. O `index.html` tem que ficar na "raiz" do repositório.
+4. Selecione **todos os arquivos da pasta** (Ctrl+A no Windows, Cmd+A no Mac) e arraste para a página do GitHub,
+   ou clique em **choose your files** e selecione todos.
 5. Espere todos os arquivos carregarem e clique em **Commit changes**.
-6. Confira: a página do repositório deve mostrar `index.html`, `conteudo.js`, `css`, `js` e `midia` logo de cara.
+6. Confira: a página do repositório deve mostrar os arquivos soltos, incluindo `index.html`, `style.css` e `main.js`.
 
 ### 3. Ligue o site
 1. No repositório, clique em **Settings** (engrenagem) → no menu da esquerda, **Pages**.
@@ -81,8 +80,10 @@ Se perder o celular, apague o token em github.com → Settings → Developer set
 ### Onde ficam os vídeos: Cloudinary
 Os vídeos ficam guardados na sua conta do **Cloudinary** (cloud name `nkcxrsrx`, preset `portfolio`, pasta `portfolio`).
 O Cloudinary converte e comprime cada vídeo sozinho para tocar rápido no celular.
-- Limite: **100 MB por vídeo** (plano grátis). Vídeo vertical, sem marca d'água. MP4 ou .mov do iPhone.
-- Se passar de 100 MB: no CapCut, exporte em 1080p.
+- Pode enviar o vídeo do jeito que saiu do celular (MP4 ou .mov do iPhone), sem marca d'água.
+- **Vídeos acima de 95 MB são comprimidos automaticamente para 1080p** antes de enviar, no próprio navegador. Isso leva de alguns segundos a poucos minutos: deixe a aba aberta até aparecer "Vídeo enviado ✓".
+- A compressão funciona melhor no **Chrome ou Edge do computador**. No celular, pode falhar com vídeos muito grandes: nesse caso, exporte em 1080p no CapCut.
+- Vídeos muito longos (mais de uns 2 minutos) podem não caber em 100 MB mesmo comprimidos. Para UGC, que costuma ter de 15 a 60 segundos, não é problema.
 - Apagar um vídeo no editor tira ele do site, mas o arquivo continua no Cloudinary. Para liberar espaço, apague também em cloudinary.com → **Media Library → pasta portfolio**.
 - O plano grátis tem uma cota mensal de uso (créditos). Para um portfólio, ela costuma sobrar, mas você acompanha em cloudinary.com → **Dashboard**.
 - **Não apague o upload preset `portfolio`**: é ele que permite o editor enviar vídeos.

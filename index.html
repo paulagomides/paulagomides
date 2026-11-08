@@ -8,13 +8,13 @@
   <meta name="description" content="Portfólio UGC de Paula Gomides: vídeos de Tech, Daily, Beauty e Fitness que conectam e convertem.">
   <meta property="og:title" content="Paula Gomides | UGC Creator">
   <meta property="og:description" content="Vídeos UGC de Tech, Daily, Beauty e Fitness que conectam e convertem.">
-  <meta property="og:image" content="midia/site/paula-capa.webp">
+  <meta property="og:image" content="paula-capa.webp">
   <meta name="theme-color" content="#870053">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%23d70084'%3E%3Cellipse cx='50' cy='26' rx='13' ry='24'/%3E%3Cellipse cx='50' cy='26' rx='13' ry='24' transform='rotate(60 50 50)'/%3E%3Cellipse cx='50' cy='26' rx='13' ry='24' transform='rotate(120 50 50)'/%3E%3Cellipse cx='50' cy='26' rx='13' ry='24' transform='rotate(180 50 50)'/%3E%3Cellipse cx='50' cy='26' rx='13' ry='24' transform='rotate(240 50 50)'/%3E%3Cellipse cx='50' cy='26' rx='13' ry='24' transform='rotate(300 50 50)'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@700;900&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Poppins:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a class="pular" href="#videos" data-ui="pular">Pular para os vídeos</a>
@@ -79,7 +79,7 @@
           <div class="sobre__video" data-img="perfil.videoSobre" data-tipo-midia="video">
             <video id="video-sobre" muted loop playsinline autoplay preload="metadata"></video>
           </div>
-          <img class="sobre__enfeite" src="midia/site/enfeite-produtos.webp" alt="" width="496" height="573" loading="lazy">
+          <img class="sobre__enfeite" src="enfeite-produtos.webp" alt="" width="496" height="573" loading="lazy">
         </div>
         <div class="sobre__texto">
           <p class="rotulo" data-e="textos.sobreRotulo"></p>
@@ -115,7 +115,7 @@
             <p class="rotulo" data-e="textos.fotosRotulo"></p>
             <h2 class="titulo" data-e="textos.fotosTitulo" data-rico></h2>
           </div>
-          <img class="fotos__camera" src="midia/site/enfeite-camera.webp" alt="" width="666" height="520" loading="lazy">
+          <img class="fotos__camera" src="enfeite-camera.webp" alt="" width="666" height="520" loading="lazy">
         </div>
         <ul class="grade-fotos" id="grade-fotos"></ul>
       </div>
@@ -194,14 +194,14 @@
   </svg>
 
   <script src="conteudo.js"></script>
-  <script src="js/main.js"></script>
+  <script src="main.js"></script>
   <script>
     /* Carrega o editor só quando o endereço termina com #editar */
     (function () {
       function carregar() {
         if (location.hash !== "#editar" || window.EDITOR_CARREGADO) return;
         window.EDITOR_CARREGADO = true;
-        var s = document.createElement("script"); s.src = "js/editor.js"; document.body.appendChild(s);
+        var s = document.createElement("script"); s.src = "editor.js"; document.body.appendChild(s);
       }
       carregar(); addEventListener("hashchange", carregar);
     })();

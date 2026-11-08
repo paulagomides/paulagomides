@@ -11,7 +11,7 @@
   const esc = P.esc;
 
   const css = document.createElement("link");
-  css.rel = "stylesheet"; css.href = "css/editor.css";
+  css.rel = "stylesheet"; css.href = "editor.css";
   document.head.appendChild(css);
 
   /* ---------- estado ---------- */
@@ -48,7 +48,7 @@
 
   const slug = (s) => (String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40) || "arquivo");
   function adicionarArquivo(blob, pasta, nome, ext) {
-    const caminho = `midia/${pasta}/${slug(nome)}-${Date.now().toString(36)}.${ext}`;
+    const caminho = `${slug(nome)}-${Date.now().toString(36)}.${ext}`; // todos os arquivos ficam soltos, na mesma pasta do site
     fila.set(caminho, blob);
     P.pendentes[caminho] = URL.createObjectURL(blob);
     return caminho;
@@ -92,12 +92,44 @@
   const nuvem = () => (C.nuvem && C.nuvem.cloudName && C.nuvem.preset ? C.nuvem : null);
   function validarVideo(f) {
     const mb = f.size / 1048576;
-    if (mb > 99) { aviso(`Esse vídeo tem ${mb.toFixed(0)} MB. O limite é 100 MB: exporte em 1080p no CapCut ou comprima no HandBrake.`, "erro"); return false; }
+    if (mb > 4000) { aviso(`Esse vídeo tem ${(mb / 1024).toFixed(1)} GB, grande demais para comprimir no navegador. Exporte em 1080p no CapCut antes.`, "erro"); return false; }
+    if (mb > LIMITE_MB) aviso(`Vídeo de ${mb.toFixed(0)} MB: vou comprimir para 1080p antes de enviar. Deixe esta aba aberta.`);
     if (!nuvem()) {
       if (mb > 30) aviso(`Vídeo grande (${mb.toFixed(0)} MB). Ele funciona, mas vai carregar devagar no celular. O ideal é até 15 MB.`);
       if (/quicktime|\.mov$/i.test(f.type + f.name)) aviso("Arquivos .mov podem não tocar em todos os navegadores. Prefira exportar em .mp4.");
     }
     return true;
+  }
+
+  /* ---------- compressão no navegador (vídeos acima do limite) ---------- */
+  const LIMITE_MB = 95;
+  const MEDIABUNNY = new URL("mediabunny.min.mjs", document.baseURI).href; // Mediabunny 1.61.6 (MPL-2.0)
+  async function comprimir(arquivo, progresso) {
+    if (!("VideoEncoder" in window)) throw new Error("Este navegador não consegue comprimir vídeos. Use o Chrome ou o Edge no computador, ou exporte em 1080p no CapCut.");
+    let MB;
+    try { MB = await import(MEDIABUNNY); } catch (e) { throw new Error("Não consegui carregar o compressor de vídeo. Verifique a internet e tente de novo."); }
+    const input = new MB.Input({ source: new MB.BlobSource(arquivo), formats: MB.ALL_FORMATS });
+    let duracao = 0;
+    try { duracao = await input.computeDuration(); } catch (e) {}
+    // cabe em ~88 MB: bitrate do vídeo entre 1,5 e 6 Mbps (6 Mbps já é qualidade alta em 1080p vertical)
+    const bitrate = duracao > 0 ? Math.max(1.5e6, Math.min(6e6, (88 * 8e6) / duracao - 192e3)) : 5e6;
+    const aac = await MB.canEncodeAudio("aac").catch(() => false);
+    const output = new MB.Output({ format: new MB.Mp4OutputFormat({ fastStart: "in-memory" }), target: new MB.BufferTarget() });
+    const conversao = await MB.Conversion.init({
+      input, output, tracks: "primary",
+      video: (track) => {
+        const w = track.displayWidth, h = track.displayHeight, k = Math.min(1, 1080 / Math.min(w, h));
+        return { width: Math.round((w * k) / 2) * 2, height: Math.round((h * k) / 2) * 2, fit: "contain", codec: "avc", bitrate, forceTranscode: true };
+      },
+      audio: { codec: aac ? "aac" : "opus", bitrate: 160e3 }
+    });
+    const perdeu = conversao.discardedTracks.find((d) => d.track.type === "audio" || d.track.type === "video");
+    if (!conversao.isValid || perdeu) throw new Error("Este navegador não conseguiu converter esse vídeo sem perder o áudio ou a imagem. Tente no Chrome do computador, ou exporte em 1080p no CapCut.");
+    conversao.onProgress = (x) => progresso?.(x);
+    await conversao.execute();
+    const novo = new File([output.target.buffer], arquivo.name.replace(/\.[^.]+$/, "") + "-1080p.mp4", { type: "video/mp4" });
+    if (novo.size > 99 * 1048576) throw new Error("Mesmo comprimido, o vídeo passou de 100 MB (ele é muito longo). Corte o vídeo ou divida em partes.");
+    return novo;
   }
 
   /* ---------- vídeos no Cloudinary ---------- */
@@ -133,6 +165,10 @@
   }
   /* Guarda um vídeo (no Cloudinary, se configurado; senão no GitHub) e devolve { video, capa } */
   async function guardarVideo(arquivo, nome, progresso) {
+    if (arquivo.size > LIMITE_MB * 1048576) {
+      arquivo = await comprimir(arquivo, (x) => progresso?.(x, "comprimindo"));
+      aviso(`Vídeo comprimido para ${(arquivo.size / 1048576).toFixed(0)} MB. Enviando…`);
+    }
     if (nuvem()) {
       const r = await enviarNuvem(arquivo, nome, progresso);
       const grande = r.bytes > 40 * 1048576 && /mp4|webm/.test(r.format);
@@ -444,7 +480,10 @@
         const prog = $("#ed-v-prog", corpo), barraP = $("span", prog), txt = $("p", prog);
         enviando = true; salvar.disabled = true; prog.hidden = false;
         prev.src = URL.createObjectURL(arquivo);
-        const mostrar = (x) => { barraP.style.width = `${Math.round(x * 100)}%`; txt.textContent = x < 1 ? `Enviando vídeo… ${Math.round(x * 100)}%` : "Processando…"; };
+        const mostrar = (x, fase) => {
+          barraP.style.width = `${Math.round(x * 100)}%`;
+          txt.textContent = fase === "comprimindo" ? `Comprimindo para 1080p… ${Math.round(x * 100)}% (deixe esta aba aberta)` : x < 1 ? `Enviando vídeo… ${Math.round(x * 100)}%` : "Processando…";
+        };
         mostrar(0);
         try {
           const r = await guardarVideo(arquivo, nome, mostrar);
@@ -649,7 +688,7 @@
     const commit = await api(c, `/git/commits/${ref.object.sha}`);
     const arvore = await api(c, `/git/trees/${commit.tree.sha}?recursive=1`);
     const caminhos = new Map(arvore.tree.map((x) => [x.path, x.sha]));
-    const achado = [...caminhos.keys()].find((p) => /(^|\/)conteudo\.js$/.test(p) && caminhos.has(p.replace(/conteudo\.js$/, "js/main.js")));
+    const achado = [...caminhos.keys()].find((p) => /(^|\/)conteudo\.js$/.test(p) && (caminhos.has(p.replace(/conteudo\.js$/, "main.js")) || caminhos.has(p.replace(/conteudo\.js$/, "js/main.js"))));
     if (achado == null) throw new Error("Não encontrei o arquivo conteudo.js neste repositório. Confira se enviou os arquivos do site.");
     return { sha: ref.object.sha, arvore: commit.tree.sha, caminhos, prefixo: achado.replace(/conteudo\.js$/, "") };
   }
@@ -665,7 +704,7 @@
     }
   }
   const paraBase64 = (blob) => new Promise((ok, erro) => { const r = new FileReader(); r.onload = () => ok(String(r.result).split(",")[1]); r.onerror = erro; r.readAsDataURL(blob); });
-  const caminhosMidia = (txt) => new Set((txt.match(/"midia\/[^"]+"/g) || []).map((s) => s.slice(1, -1)));
+  const caminhosMidia = (txt) => new Set((txt.match(/"[^"\/:]+\.(?:jpe?g|png|webp|mp4|webm|mov)"/gi) || []).map((s) => s.slice(1, -1)));
 
   async function publicar() {
     if (!alterado()) return aviso("Nada novo para publicar.");
