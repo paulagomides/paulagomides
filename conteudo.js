@@ -574,7 +574,7 @@ window.CONTEUDO = {
         "en": "Ad videos"
       },
       "texto": {
-        "pt": "15 a 30 segundos, com gancho, demonstração e chamada para ação.",
+        "pt": "Vídeos curtos com gancho, demonstração e chamada para ação.",
         "en": "15 to 30 seconds, with a hook, demo and call to action."
       }
     },
@@ -688,7 +688,7 @@ window.CONTEUDO = {
           "en": "1 UGC video"
         },
         {
-          "pt": "Roteiro simples",
+          "pt": "Roteiro e edição",
           "en": "Simple script"
         },
         {
@@ -709,15 +709,15 @@ window.CONTEUDO = {
       },
       "itens": [
         {
-          "pt": "3 vídeos UGC",
+          "pt": "3 vídeos",
           "en": "3 UGC videos"
         },
         {
-          "pt": "2 variações de gancho",
+          "pt": "Roteiro e edição",
           "en": "2 hook variations"
         },
         {
-          "pt": "Fotos do produto",
+          "pt": "2 Fotos UGC",
           "en": "Product photos"
         }
       ]
@@ -734,15 +734,15 @@ window.CONTEUDO = {
       },
       "itens": [
         {
-          "pt": "5 vídeos em formatos diferentes",
+          "pt": "5 vídeos",
           "en": "5 videos in different formats"
         },
         {
-          "pt": "Versões para anúncios",
+          "pt": "Roteiro e edição",
           "en": "Ad versions"
         },
         {
-          "pt": "Fotos do produto",
+          "pt": "4 Fotos UGC",
           "en": "Product photos"
         },
         {
