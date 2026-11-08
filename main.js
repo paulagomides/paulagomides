@@ -96,11 +96,8 @@
     $("#fita").innerHTML = `<span>${palavras.map((p) => `${p} ${flor}`).join(" ")}</span>`.repeat(4);
 
     // sobre
-    const vs = $("#video-sobre"), vsrc = src(C.perfil.videoSobre);
-    if (vs.dataset.src !== vsrc) {
-      vs.dataset.src = vsrc; vs.poster = src(C.perfil.capaVideoSobre || ""); vs.src = vsrc;
-      if (reduzMovimento) vs.removeAttribute("autoplay"); else vs.play?.().catch(() => {});
-    }
+    $("#foto-sobre").src = src(C.perfil.fotoSobre);
+    $("#foto-sobre").alt = C.perfil.nome;
     $("#fatos").innerHTML = C.perfil.fatos.map((f, i) => `<li data-item="perfil.fatos.${i}"><span data-e="perfil.fatos.${i}">${esc(t(f))}</span></li>`).join("");
     $("#interesses").innerHTML = C.perfil.interesses.map((f, i) => `<li data-item="perfil.interesses.${i}"><span data-e="perfil.interesses.${i}">${esc(t(f))}</span></li>`).join("");
     $("#diferenciais").innerHTML = C.perfil.diferenciais.map((d, i) =>

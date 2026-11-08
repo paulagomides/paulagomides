@@ -25,6 +25,10 @@ window.CONTEUDO = {
       "en": "About me"
     },
     "sobreTitulo": {
+      "pt": "Paula, creator UGC, 26 anos",
+      "en": "Paula, UGC creator, 26"
+    },
+    "sobreSubtitulo": {
       "pt": "Leveza e autenticidade na *rotina real*",
       "en": "Lightness and authenticity in *real routines*"
     },
@@ -136,17 +140,11 @@ window.CONTEUDO = {
     },
     "fotoCapa": "paula-capa.webp",
     "fotoSobre": "paula-sobre.webp",
-    "videoSobre": "https://res.cloudinary.com/nkcxrsrx/video/upload/q_auto,vc_h264,w_1080,c_limit/v1794152626/portfolio/sobre-mim.mp4",
-    "capaVideoSobre": "sobre-mim.jpg",
     "apresentacao": {
       "pt": "Sou a Paula, UGC Creator. Crio vídeos leves e autênticos que mostram o produto dentro de momentos reais da rotina, com roteiro e narração próprios.",
       "en": "I’m Paula, a UGC Creator. I make light, authentic videos that show products inside real moments of everyday life, with my own scripts and voiceover."
     },
     "fatos": [
-      {
-        "pt": "Paula, 26 anos",
-        "en": "Paula, 26"
-      },
       {
         "pt": "São Paulo - SP",
         "en": "São Paulo, Brazil"
@@ -672,16 +670,12 @@ window.CONTEUDO = {
       },
       "itens": [
         {
-          "pt": "1 vídeo UGC de até 30 s",
-          "en": "1 UGC video up to 30 s"
+          "pt": "1 vídeo UGC",
+          "en": "1 UGC video"
         },
         {
           "pt": "Roteiro simples",
           "en": "Simple script"
-        },
-        {
-          "pt": "1 rodada de ajustes",
-          "en": "1 round of revisions"
         },
         {
           "pt": "Entrega em até 7 dias",
@@ -711,10 +705,6 @@ window.CONTEUDO = {
         {
           "pt": "Fotos do produto",
           "en": "Product photos"
-        },
-        {
-          "pt": "1 rodada de ajustes",
-          "en": "1 round of revisions"
         }
       ]
     },
