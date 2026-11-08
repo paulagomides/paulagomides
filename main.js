@@ -122,7 +122,7 @@
         <h3 data-e="pacotes.${i}.nome">${esc(t(p.nome))}</h3>
         <p class="pacote__preco" data-e="pacotes.${i}.preco">${esc(t(p.preco))}</p>
         <ul data-lista="pacotes.${i}.itens">${p.itens.map((it, j) => `<li data-item="pacotes.${i}.itens.${j}">${flor}<span data-e="pacotes.${i}.itens.${j}">${esc(t(it))}</span></li>`).join("")}</ul>
-        <a class="botao" target="_blank" rel="noopener" href="${linkWhats(ui("pacoteMsg").replace("{p}", t(p.nome)))}"><span data-e="textos.pacoteBotao">${esc(t(C.textos.pacoteBotao))}</span></a>
+        <a class="botao" data-pacote="${esc(P.ehBilingue(p.nome) ? p.nome.pt : p.nome)}" target="_blank" rel="noopener" href="${linkWhats(ui("pacoteMsg").replace("{p}", t(p.nome)))}"><span data-e="textos.pacoteBotao">${esc(t(C.textos.pacoteBotao))}</span></a>
       </article>`).join("");
 
     aoRolar();
@@ -160,6 +160,33 @@
     P.depoisVideos?.();
   }
   Object.assign(P, { render, renderVideos });
+
+  /* ---------- estatísticas (Umami) ---------- */
+  // Conta visitas e cliques. Não conta nada no modo edição (#editar), para não misturar as suas visitas.
+  const emPt = (v) => (ehBilingue(v) ? v.pt || v.en : v) || "";
+  function rastrear(evento, dados) {
+    if (P.editando || location.hash === "#editar") return;
+    try { window.umami?.track(evento, dados); } catch (e) {}
+  }
+  P.rastrear = rastrear;
+  (function ligarEstatisticas() {
+    const id = C.estatisticas?.umamiId;
+    if (!id || location.hash === "#editar" || /^(localhost|127\.)/.test(location.hostname)) return;
+    const s = document.createElement("script");
+    s.defer = true; s.src = "https://cloud.umami.is/script.js"; s.dataset.websiteId = id;
+    document.head.appendChild(s);
+  })();
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a, button");
+    if (!a) return;
+    if (a.matches("[data-whats]")) rastrear("whatsapp", { local: a.dataset.local || "outro" });
+    else if (a.dataset.pacote) rastrear("whatsapp", { local: "pacote", pacote: a.dataset.pacote });
+    else if (a.id === "link-email") rastrear("email", {});
+    else if (a.id === "copiar-email") rastrear("copiar-email", {});
+    else if (a.closest("#capa-redes, #contato-redes, #gaveta-redes")) rastrear("rede-social", { perfil: a.textContent.trim() });
+    else if (a.dataset.filtro) rastrear("filtro-videos", { categoria: a.dataset.filtro });
+    else if (a.dataset.lang) rastrear("idioma", { para: a.dataset.lang });
+  }, true);
 
   P.mudarIdioma = (l) => {
     P.lang = l;
@@ -304,12 +331,17 @@
     }
     $("#modal-ant").hidden = $("#modal-prox").hidden = lista.length < 2;
   }
+  function contarVisualizacao() {
+    if (atual.tipo === "video") { const v = visiveis[atual.i]?.v; if (v) rastrear("video-assistido", { video: emPt(v.titulo) }); }
+    else rastrear("foto-ampliada", { foto: atual.i + 1 });
+  }
   function abrir(tipo, i) {
     focoAnterior = document.activeElement;
     atual = { tipo, i };
     $$(".card-video video").forEach((v) => v.pause());
     modal.hidden = false; document.body.style.overflow = "hidden";
     mostrar(); $("#modal-fechar").focus();
+    contarVisualizacao();
   }
   function fechar() {
     modal.hidden = true; palco.innerHTML = ""; document.body.style.overflow = "";
@@ -318,6 +350,7 @@
   function passo(d) {
     const n = atual.tipo === "video" ? visiveis.length : C.fotos.length;
     atual.i = (atual.i + d + n) % n; palco.innerHTML = ""; mostrar();
+    contarVisualizacao();
   }
   $("#modal-fechar").addEventListener("click", fechar);
   $("#modal-ant").addEventListener("click", () => passo(-1));

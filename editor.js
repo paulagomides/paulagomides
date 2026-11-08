@@ -622,6 +622,9 @@
       <div class="ed-duplo"><label>Cloud name<input id="ed-n-cloud" value="${esc(C.nuvem?.cloudName || "")}"></label>
         <label>Upload preset<input id="ed-n-preset" value="${esc(C.nuvem?.preset || "")}"></label>
         <p class="ed-nota">Vídeos novos vão para o Cloudinary. Deixe em branco para guardar os vídeos no GitHub.</p></div>
+      <h3>Estatísticas (Umami)</h3>
+      <label>Website ID<input id="ed-u-id" value="${esc(C.estatisticas?.umamiId || "")}" placeholder="ex.: 9674665b-26f7-…"></label>
+      <p class="ed-nota">Veja visitas e cliques em cloud.umami.is. Deixe vazio para desligar.</p>
       <h3>Letreiro (faixa que corre embaixo da capa)</h3>
       <div class="ed-duplo"><label>Palavras <small>português</small><textarea id="ed-l-pt" rows="6">${esc((C.textos.letreiro || []).map((x) => bil(x, "pt")).join("\n"))}</textarea></label>
         <label>Palavras <small>inglês</small><textarea id="ed-l-en" rows="6">${esc((C.textos.letreiro || []).map((x) => bil(x, "en")).join("\n"))}</textarea></label>
@@ -649,6 +652,8 @@
         ct.email = $("#ed-c-email", corpo).value.trim();
         ct.redes = $$(".ed-rede", corpo).map((l) => ({ rede: $("select", l).value, usuario: $(".r-u", l).value.trim(), link: $(".r-l", l).value.trim() })).filter((r) => r.link.length > 8);
         C.categorias = cats;
+        const uid = $("#ed-u-id", corpo).value.trim();
+        if (uid) C.estatisticas = { umamiId: uid }; else delete C.estatisticas;
         const lpt = $("#ed-l-pt", corpo).value.split("\n").map((x) => x.trim()), len = $("#ed-l-en", corpo).value.split("\n").map((x) => x.trim());
         C.textos.letreiro = lpt.map((x, i) => (x ? fazBil(x, len[i] || "") : null)).filter(Boolean);
         const cloud = $("#ed-n-cloud", corpo).value.trim(), preset = $("#ed-n-preset", corpo).value.trim();
